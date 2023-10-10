@@ -1,0 +1,49 @@
+---
+title: "bahamas-filtering"
+format: html
+editor: visual
+---
+
+```{r}
+#| label: load-data-points
+
+library(tidyverse)
+library(tidymodels)
+
+data1590_99 <- read_csv("data/west_indies keying tfidf - 1590-1599.csv")
+data1600_09 <- read_csv("data/west_indies keying tfidf - 1600-1609.csv")
+data1610_19 <- read_csv("data/west_indies keying tfidf - 1610-1619.csv")
+data1620_29 <- read_csv("data/west_indies keying tfidf - 1620-1629.csv")
+data1630_39 <- read_csv("data/west_indies keying tfidf - 1630-1639.csv")
+                        
+```
+```{r}
+#| label: filter-for-bermuda-words 
+
+bermuda_1590_99 <- data1590_99 |> 
+  select(...1, bermuda, somer, somers, summer_islands, summer_isles) |>
+  filter(bermuda > 0 |somer > 0 | somers > 0 | summer_islands > 0 | summer_isles > 0) |>
+  filter(...1 != "westindies_keyinwords")
+
+bermuda1600_1609 <- data1600_09 |>
+  select(...1, bermuda, somer, somers, summer_islands, summer_isles) |>
+  filter(bermuda > 0 |somer > 0 | somers > 0 | summer_islands > 0 | summer_isles > 0) |>
+  filter(...1 != "westindies_keyinwords")
+
+bermuda1610_1619 <- data1610_19 |>
+  select(...1, bermuda, somer, somers, summer_islands, summer_isles) |>
+  filter(bermuda > 0 |somer > 0 | somers > 0 | summer_islands > 0 | summer_isles > 0) |>
+  filter(...1 != "westindies_keyinwords")
+
+bermuda1620_1629 <- data1620_29 |> 
+  select(...1, bermuda, somer, somers, summer_islands, summer_isles) |>
+  filter(bermuda > 0 |somer > 0 | somers > 0 | summer_islands > 0 | summer_isles > 0) |>
+  filter(...1 != "westindies_keyinwords")
+
+bermuda1630_1639 <- data1630_39 |> 
+  select(...1, bermuda, somer, somers, summer_islands, summer_isles) |>
+  filter(bermuda > 0 |somer > 0 | somers > 0 | summer_islands > 0 | summer_isles > 0) |>
+  filter(...1 != "westindies_keyinwords")
+
+
+```
