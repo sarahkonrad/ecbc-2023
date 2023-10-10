@@ -20,7 +20,7 @@ data1630_39 <- read_csv("data/west_indies keying tfidf - 1630-1639.csv")
 ```{r}
 #| label: filter-for-bermuda-words 
 
-bermuda_1590_99 <- data1590_99 |> 
+bermuda1590_1599 <- data1590_99 |> 
   select(...1, bermuda, somer, somers, summer_islands, summer_isles) |>
   filter(bermuda > 0 |somer > 0 | somers > 0 | summer_islands > 0 | summer_isles > 0) |>
   filter(...1 != "westindies_keyinwords")
@@ -45,5 +45,12 @@ bermuda1630_1639 <- data1630_39 |>
   filter(bermuda > 0 |somer > 0 | somers > 0 | summer_islands > 0 | summer_isles > 0) |>
   filter(...1 != "westindies_keyinwords")
 
+```
 
+```{r}
+write.csv(bermuda1590_1599, file = "bermuda1590_99.csv")
+write.csv(bermuda1600_1609, file = "bermuda1600_09.csv")
+write.csv(bermuda1610_1619, file = "bermuda1610_19.csv")
+write.csv(bermuda1620_1629, file = "bermuda1620_29.csv")
+write.csv(bermuda1630_1639, file = "bermuda1630_39.csv")
 ```
